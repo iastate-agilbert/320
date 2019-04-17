@@ -1,0 +1,9 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+sentence = prompt("Enter a sentence")
+  function process(data) {
+   
+    alert(data.sentences[0].tokens[1].pos)
+  }
+  $.getJSON("https://linguatorium.com/tools/320/parse.pl", { text: sentence }, process);
+</script>

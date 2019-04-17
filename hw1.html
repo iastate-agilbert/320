@@ -1,0 +1,19 @@
+<script>
+a=1
+b=100
+game_over=false
+while(!game_over) {
+	guess=parseInt((a+b)/2)
+	response=prompt("Is your number "+guess+"?")
+	if(response==">") {
+		a=guess+1
+	}
+	if (response=="<") {
+		b=guess-1
+	}
+	if (response=="yes") {
+		game_over=true
+	}
+}
+alert("I win!")
+</script>

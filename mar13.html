@@ -1,0 +1,15 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+
+function process() {
+  x = document.getElementById("input").value
+  y = x.replace(/ +/g," ")
+  y = y.replace(/\s*\n\s*/g, "\n")
+  y = y.replace(/^\s*/g, "")
+  document.getElementById("output").value = y
+}
+//fn + f12 brings up the code error reader thing
+</script>

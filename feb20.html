@@ -1,0 +1,8 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  function process(data) {
+    console.log(JSON.stringify(data, null, 4))
+  }
+  $.getJSON("https://linguatorium.com/tools/320/parse.pl", { text: "Hello world!" }, process);
+  alert(data.sentences[0].tokens[0].pos)
+</script>

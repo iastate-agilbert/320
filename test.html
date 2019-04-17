@@ -1,0 +1,20 @@
+<script>
+var num = Math.floor(Math.random()*100+1) //Generates a random number from 1 to 100
+var guess
+var numGuessesUsed = 0
+alert("I'm thinking of a number from 1 to 100.")
+while(true) {
+  guess = prompt("Make a guess."+'\n'+"Number of guesses used: "+numGuessesUsed)
+  numGuessesUsed = numGuessesUsed + 1
+  if(guess > num) {
+    alert("Too High!")
+  } else if (guess < num) {
+    alert("Too Low!")
+  } else {
+    // If it isn't too high and isn't too low, it must be equal
+    alert("You got it in "+numGuessesUsed+" guesses!")
+    break; // This is just one way of telling the program to exit the while loop
+  }
+}
+</script>
+

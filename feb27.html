@@ -1,0 +1,31 @@
+<p>Input:<br><textarea id="input" rows="10" cols="80"></textarea>
+<p><button onclick="process()">Process</button>
+<p>Output:<br><textarea id="output" rows="10" cols="80"></textarea>
+
+<script>
+
+function process() {
+  x = document.getElementById("input").value
+  // remove punctuation
+  x = x.replace(/\W+/g, " ").toLowerCase().trim() // you don't need to understand how this line works (for now)
+
+  words=x.split(" ")
+  counts={}
+  for(i=0; i<words.length; i++) {
+    if(!counts[words[i]]){
+	  counts[words[i]]=1
+	  }else{counts[words[i]]++
+	  }
+	  }
+
+  y = JSON.stringify(counts, null, 2) // display the object as JSON
+  document.getElementById("output").value = y
+}
+
+</script>
+//Split up the input into words.
+//Go through every words
+//Put each word into our JS object
+ // Check if it is alreadu in the object
+ // If yes, add 1 to the count
+ // If no, start count at 1
