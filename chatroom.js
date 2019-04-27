@@ -65,27 +65,27 @@ if(lastStep == 0){
   if(/\b(yes|yeah|sure|yep)\b/g.test(userResponse.toLowerCase())){
     say("Great! How long have you believed for?");
     lastStep = 1;
-  }else if(/\b(no)\b/g.test(userResponse.toLowerCase())){
+  }else if(/\b(no|not)\b/g.test(userResponse.toLowerCase())){
     say("Ok, have you thought about it much?");
     lastStep = 2;
   }else{
     say("I didn't understand, please try again")
   }
 }else if(lastStep == 1){
-  if(/\b(forever)\b/g.test(userResponse.toLowerCase())){
+  if(/\b(forever|long time|years|childhood)\b/g.test(userResponse.toLowerCase())){
     say("Excellent to hear! Have you been baptized?");
     lastStep = 3;
-  }else if(/\b(I lied)\b/g.test(userResponse)){
-    say("Why did you do that?");
+  }else if(/\b(recent|new|not long|days|months|weeks|yesterday)\b/g.test(userResponse)){
+    say("That's awesome! How did you come to believe?");
     lastStep = 4;
   }else{
     say("I didn't understand, please try again")
   }
 }else if(lastStep == 3){
-	if(/\b(yes)\b/g.test(userResponse.toLowerCase())){
+	if(/\b(yes|of course)\b/g.test(userResponse.toLowerCase())){
 		say("Fantastic! In what ways have you been growing in your faith? Have you been studying the Bible, looking into missions, staying in community, or none of these?");
 		lastStep = 5;
-	}else if(/\b(no)\b/g.test(userResponse)){
+	}else if(/\b(no|not|don't|didn't|haven't)\b/g.test(userResponse)){
 		say("Have you considered it?");
 		lastStep = 6;
 	}else{
@@ -106,12 +106,48 @@ if(lastStep == 0){
 		say("Would you like to be baptized?");
 		lastStep = 9;
 	}else if(/\b(not|haven't|no|did't)\b/g.test(userResponse.toLowerCase())){
-		say("That's alright. I would encourage to consider it and the deeper meaning behind it.");
+		say("That's alright. I would encourage you to consider it and the deeper meaning behind it.");
 		lastStep = 10;
 	}else{
     say("I didn't understand, please try again")
   }
-
+}else if(lastStep == 4){
+	if(/\b(friend|mother|mom|dad|father|brother|sister|grandmother|grandfather|relative|family|church|shared|hope|redeemed)\b/g.test(userResponse.toLowerCase())){
+		say("Thats really cool! Thanks for sharing. Does your family believe?");
+		lastStep = 11;
+	}else{
+    say("I didn't understand, please try again")
+  }
+}else if(lastStep == 11){
+	if(/\b(yes)\b/g.test(userResponse.toLowerCase())){
+		say("That's great! I'm glad we had this talk.");
+		lastStep = 12;
+	if(/\b(no)\b/g.test(userResponse.toLowerCase())){
+		say("Be a blessing to them with how you live. Be a light in their lives by showing the Gospel with grace and by being a servant.");
+		lastStep = 13;
+	}else{
+	say("I didn't understand, please try again")
+  }
+}else if(lastStep == 9){
+	if(/\b(yes|I do|I would|)\b/g.test(userResponse.toLowerCase())){
+		say("That's great! Go for it!");
+		lastStep = 14;
+	if(/\b(no|not|don't|can't)\b/g.test(userResponse.toLowerCase())){
+		say("I would encourage you to consider it. Thanks for talking with me!");
+		lastStep = 15;
+	}else{
+	say("I didn't understand, please try again")
+	}
+}else if(lastStep == 2){
+	if(/\b(yes|I have|of course|certainly)\b/g.test(userResponse.toLowerCase())){
+		say("I would encourage you to keep thinking about the existence of God. I think that you can find hope that way, whether you think you need it now or not. Thank you for speaking with me!");
+	if(/\b(no|haven't|don't|not)\b/g.test(userResponse.toLowerCase())){
+		say("I'd encourage you to think about it. It's not up to me to prove his existence to anyone, but I think that everyone needs hope at some point. Thank you for speaking with me!");
+	
+	}else{
+	say("I didn't understand, please try again")
+	}
+	}
 
 
 
