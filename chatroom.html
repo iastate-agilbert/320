@@ -1,40 +1,61 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src = "chatroom.js"></script>
+<script src="chatroom.js"></script>
 
 
 <html>
-  <head>
-    <title>Chat</title>
-    <style>
-      ul    { list-style: none; }
-      #button1 , #button2 {
-      display:inline-block;
-      margin-bottom:15px
-      }
-     #chatBox{
-       width: 300px;
-       height: 70px;
-     }
-     #voice{
-       margin-top:5px
-     }
-     #label{
-       margin-top:20px
-     }
-    </style>
-  </head>
-  <body onload="myFunction()">
-    <ul id="messages"></ul>
-    <form id="chatbox">
-      <textarea id = "chatBox" placeholder="Type your message here."></textarea>
-      <input type="button" value="Send Chat Message" onclick ="sendMessage()" id ="button1"</input>
-      <input type="button" value ="Speak" onclick = "listen()" id="button2" </input>
 
-      <div class="option">
-		<label for="voice" id= "label">You are speaking to:</label>
-		<select name="voice" id="voice"></select>
+<head>
+  <title>Chat</title>
+  <style>
+    ul {
+      list-style: none;
+    }
 
-	</div>
-  </form>
-   </body>
-</html>
+    #button1,
+    #button2 {
+      display: inline-block;
+      margin-bottom: 15px
+    }
+
+    #beginButton {
+      width: 300px;
+      height: 70px;
+      font-size: 50px;
+    }
+
+    #chatBox {
+      width: 500px;
+      height: 70px;
+    }
+
+    #messages {
+      overflow-y: scroll;
+      width: 500px;
+      height: 200px;
+      margin-bottom: 10px;
+    }
+
+    #voice {
+      margin-top: 5px
+    }
+
+    #label {
+      margin-top: 20px
+    }
+
+    #muteButton {
+      margin-top: 5px
+    }
+  </style>
+</head>
+
+<body onload="onStart()">
+  <input type="button" value="Begin" onclick="begin()" id="beginButton" </input> <div id="messages"></div>
+  <form id="chatbox">
+    <textarea id="chatBox" placeholder="Type your message here."></textarea>
+    <input type="button" value="Send Chat Message" onclick="sendMessage()" id="button1" </input> <input type="button" value="Speak" onclick="listen()" id="button2" </input> <div class="option">
+    <label for="voice" id="label">You are speaking to:</label>
+    <select name="voice" id="voice"></select>
+
+    </div>
+    <input type="button" value="Mute Speaker" onclick="mute()" id="muteButton" </input> </form> </body> </html>
